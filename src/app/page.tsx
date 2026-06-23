@@ -15,12 +15,12 @@ export default function Home() {
       <SiteHeader />
       <main className="bg-background">
         <section className="relative overflow-hidden">
-          <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:min-h-[720px] lg:grid-cols-[0.86fr_1.14fr] lg:py-20">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 lg:min-h-[620px] lg:grid-cols-[0.9fr_1.1fr] lg:py-14">
             <div className="max-w-xl">
               <p className="text-base font-semibold text-teal">
                 {company.registrationLabel}
               </p>
-              <h1 className="mt-5 text-5xl font-bold leading-[1.05] text-navy md:text-6xl lg:text-7xl">
+              <h1 className="mt-5 text-4xl font-bold leading-[1.08] text-navy sm:text-5xl md:text-6xl">
                 Support that helps you live with confidence
               </h1>
               <p className="mt-7 text-lg leading-8 text-muted">
@@ -35,7 +35,7 @@ export default function Home() {
                 </ButtonLink>
               </div>
             </div>
-            <div className="relative min-h-[420px] overflow-hidden rounded-lg bg-sky-soft lg:min-h-[560px]">
+            <div className="relative min-h-[360px] overflow-hidden rounded-lg bg-sky-soft lg:min-h-[480px]">
               <Image
                 src="/images/hero-support.png"
                 alt="Support worker assisting a participant in the community"
