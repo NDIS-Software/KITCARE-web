@@ -4,5 +4,6 @@ out/
 node_modules/
 .vercel/
 npm-debug.log*
+*.tsbuildinfo
 .env*
 !.env.example
