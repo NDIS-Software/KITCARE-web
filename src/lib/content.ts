@@ -23,6 +23,19 @@ export const services = [
       "Support with daily living routines so you can feel comfortable and confident at home.",
     image: "/images/personal-care.png",
     icon: "care",
+    detail:
+      "Personal Care support is designed around your daily routines, preferences, privacy, and goals. KITCARE works respectfully with you so support feels practical, consistent, and comfortable.",
+    includes: [
+      "Daily routines and personal presentation",
+      "Meal preparation prompts and support",
+      "Mobility and transfers where appropriate",
+      "Building confidence with everyday tasks",
+    ],
+    helps: [
+      "Participants who want reliable help at home",
+      "People building confidence with daily routines",
+      "Families seeking respectful, person-centred support",
+    ],
   },
   {
     title: "Community Participation",
@@ -32,6 +45,19 @@ export const services = [
       "Build skills, pursue interests, and take part in community activities that matter to you.",
     image: "/images/community-participation.png",
     icon: "community",
+    detail:
+      "Community Participation support helps you stay connected, develop skills, and take part in activities that are meaningful to you.",
+    includes: [
+      "Attending local activities or appointments",
+      "Building social confidence and independence",
+      "Support to pursue hobbies and interests",
+      "Planning safe and enjoyable community access",
+    ],
+    helps: [
+      "Participants wanting to connect with community",
+      "People developing independence outside the home",
+      "Participants who want practical support to try new activities",
+    ],
   },
   {
     title: "Household Tasks",
@@ -41,6 +67,19 @@ export const services = [
       "Practical support to keep your home safe, clean, organised, and comfortable.",
     image: "/images/household-tasks.png",
     icon: "home",
+    detail:
+      "Household Tasks support helps keep your home clean, safe, and comfortable while respecting how you like your space to work.",
+    includes: [
+      "Light cleaning and household routines",
+      "Laundry and linen support",
+      "Kitchen organisation and meal-related tasks",
+      "Practical support to maintain a safer home",
+    ],
+    helps: [
+      "Participants who need support maintaining their home",
+      "People who want consistent household routines",
+      "Families looking for practical daily living support",
+    ],
   },
   {
     title: "Travel & Transport",
@@ -50,6 +89,19 @@ export const services = [
       "Safe and reliable support for appointments, activities, shopping, and community access.",
     image: "/images/travel-transport.png",
     icon: "transport",
+    detail:
+      "Travel and Transport support helps you get where you need to go for appointments, activities, shopping, and community life.",
+    includes: [
+      "Transport to appointments and activities",
+      "Support with shopping and errands",
+      "Community access planning",
+      "Confidence building around travel routines",
+    ],
+    helps: [
+      "Participants who need reliable travel support",
+      "People attending regular appointments",
+      "Participants building confidence with community access",
+    ],
   },
 ];
 
@@ -114,4 +166,3 @@ export const faqs = [
       "We aim to match you with support workers who suit your preferences, routines, and goals where available.",
   },
 ];
-
