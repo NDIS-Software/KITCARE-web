@@ -8,15 +8,17 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
-  carePrinciples,
   company,
   faqs,
-  featuredServices,
+  serviceScenarios,
+  services,
   trustPoints,
   whyChooseUs,
 } from "@/lib/content";
 
 export default function Home() {
+  const [featuredService, ...supportServices] = services;
+
   return (
     <>
       <SiteHeader />
@@ -44,8 +46,8 @@ export default function Home() {
             </div>
             <div className="relative min-h-[360px] overflow-hidden rounded-lg bg-sky-soft lg:min-h-[500px]">
               <Image
-                src="/images/generated/melbourne-disability-support-hero.png"
-                alt="Support worker walking with a wheelchair user in a sunny Melbourne park"
+                src="/images/generated/kitcare-neighbourhood-support-hero.png"
+                alt="Support worker walking with a participant through a Melbourne neighbourhood"
                 fill
                 priority
                 className="object-cover"
@@ -73,13 +75,35 @@ export default function Home() {
         <section className="bg-sky-soft px-6 py-20">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
-              title="Our Services"
-              description="Flexible support designed around your goals, routines, and lifestyle."
+              title="Support that meets people in real life"
+              description="Start with the routines, places, and goals that matter. From there, explore the service groups that may fit."
             />
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {featuredServices.map((service) => (
-                <ServiceCard key={service.href} service={service} />
-              ))}
+            <div className="mt-12 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+              <ServiceCard service={featuredService} variant="featured" />
+              <div className="grid gap-6">
+                {supportServices.slice(0, 2).map((service) => (
+                  <ServiceCard
+                    key={service.href}
+                    service={service}
+                    variant="compact"
+                  />
+                ))}
+                <div className="rounded-lg bg-white p-7 shadow-[0_18px_60px_rgba(8,47,99,0.08)]">
+                  <Icon name="chat" className="size-11 text-teal" />
+                  <h2 className="mt-5 text-2xl font-bold leading-tight text-navy">
+                    Not sure which support fits?
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-muted">
+                    Tell us what you want help with. We can talk through daily
+                    routines, transport, home support, and community access.
+                  </p>
+                  <div className="mt-6">
+                    <ButtonLink href="/contact" variant="secondary">
+                      Contact Us
+                    </ButtonLink>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="mt-10 text-center">
               <ButtonLink href="/services" variant="secondary">
@@ -107,8 +131,8 @@ export default function Home() {
               </Link>
               <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-lg bg-sky-soft">
                 <Image
-                  src="/images/personal-care.png"
-                  alt="KIT Care support worker speaking with a participant"
+                  src="/images/generated/kitcare-team-support-planning.png"
+                  alt="KIT Care team reviewing a participant support plan"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -137,23 +161,37 @@ export default function Home() {
         <section className="bg-sky-soft px-6 py-20">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
-              title="How we support people"
-              description="Our service attitude is simple: respectful, practical, warm, and focused on each participant's real life."
+              title="Support for real routines"
+              description="A richer look at the situations where support can make daily life feel more manageable, connected, and confident."
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {carePrinciples.map((item) => (
-                <div
+              {serviceScenarios.map((item) => (
+                <Link
+                  href="/services"
                   key={item.title}
-                  className="rounded-lg bg-white p-7 shadow-[0_18px_50px_rgba(8,47,99,0.07)]"
+                  className="group relative min-h-[340px] overflow-hidden rounded-lg bg-navy text-white shadow-[0_18px_50px_rgba(8,47,99,0.07)] transition hover:-translate-y-1 hover:shadow-[0_24px_64px_rgba(8,47,99,0.13)]"
                 >
-                  <Icon name={item.icon} className="size-10 text-teal" />
-                  <h3 className="mt-5 text-xl font-bold text-navy">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-muted">
-                    {item.description}
-                  </p>
-                </div>
+                  <Image
+                    src={item.image}
+                    alt={`${item.title} support`}
+                      fill
+                      quality={90}
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/58 to-transparent" />
+                  <div className="relative flex min-h-[340px] flex-col justify-end p-6">
+                    <div className="flex size-11 items-center justify-center rounded-md bg-white/16 text-white ring-1 ring-white/20">
+                      <Icon name={item.icon} className="size-7" />
+                    </div>
+                    <h3 className="mt-5 text-xl font-bold">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-white/84">
+                      {item.description}
+                    </p>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -163,10 +201,11 @@ export default function Home() {
           <div className="mx-auto grid max-w-7xl overflow-hidden rounded-lg border border-border-soft bg-white shadow-[0_24px_70px_rgba(8,47,99,0.08)] lg:grid-cols-[1.1fr_0.9fr]">
             <div className="relative min-h-[320px]">
               <Image
-                src="/images/generated/ndis-support-services-collage.png"
-                alt="Collage of NDIS support services including personal care, household tasks, transport, and group activities"
-                fill
-                className="object-cover"
+                src="/images/generated/community-market-choice-support.png"
+                alt="Participant choosing produce with support at a local community market"
+                  fill
+                  quality={90}
+                  className="object-cover"
                 sizes="(min-width: 1024px) 58vw, 100vw"
               />
             </div>
