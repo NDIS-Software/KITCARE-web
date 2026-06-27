@@ -6,12 +6,12 @@ import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { whyChooseUs } from "@/lib/content";
+import { carePrinciples, company, whyChooseUs } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about KITCARE, a registered NDIS provider focused on respectful, person-centred support.",
+    "Learn about KIT Care, a registered NDIS provider in Melbourne focused on respectful, person-centred support.",
 };
 
 export default function AboutPage() {
@@ -21,7 +21,7 @@ export default function AboutPage() {
       <main>
         <PageHero
           title="Support built around people, choices, and community"
-          description="KITCARE provides respectful NDIS support that helps participants feel heard, safe, and confident in everyday life."
+          description="KIT Care provides respectful NDIS support in Melbourne that helps participants feel heard, safe, and confident in everyday life."
         />
         <section className="px-6 py-20">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
@@ -35,7 +35,7 @@ export default function AboutPage() {
               />
             </div>
             <div>
-              <SectionHeader title="About KITCARE" align="left" />
+              <SectionHeader title="About KIT Care" align="left" />
               <p className="mt-6 text-base leading-8 text-muted">
                 We work with participants, families, and support networks to
                 create practical supports that fit real life. Our approach is
@@ -43,9 +43,14 @@ export default function AboutPage() {
                 at home and in the community.
               </p>
               <p className="mt-5 text-base leading-8 text-muted">
-                As a registered NDIS provider, KITCARE is committed to
+                As a registered NDIS provider, KIT Care is committed to
                 respectful communication, safe support practices, and services
                 that place participant choice at the centre.
+              </p>
+              <p className="mt-5 text-base leading-8 text-muted">
+                Our local focus is {company.serviceArea}. We support people in
+                everyday settings: home, community, appointments, transport,
+                centre activities, and routines that build independence.
               </p>
             </div>
           </div>
@@ -65,9 +70,30 @@ export default function AboutPage() {
           </div>
         </section>
         <section className="px-6 py-20">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              title="Our care approach"
+              description="The best support is practical, respectful, and easy to understand. These principles guide how KIT Care works with participants and families."
+            />
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {carePrinciples.map((item) => (
+                <div key={item.title} className="rounded-lg border border-border-soft bg-white p-7">
+                  <Icon name={item.icon} className="size-10 text-teal" />
+                  <h3 className="mt-5 text-xl font-bold text-navy">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-muted">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="px-6 py-20">
           <div className="mx-auto max-w-5xl">
             <SectionHeader
-              title="Why people choose KITCARE"
+              title="Why people choose KIT Care"
               description="Our team focuses on practical support, clear communication, and care that respects each participant's goals."
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -93,4 +119,3 @@ export default function AboutPage() {
     </>
   );
 }
-

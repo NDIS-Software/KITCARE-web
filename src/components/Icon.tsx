@@ -44,6 +44,33 @@ const paths: Record<string, React.ReactNode> = {
       <circle cx="17" cy="18" r="2" />
     </>
   ),
+  group: (
+    <>
+      <circle cx="7" cy="8" r="3" />
+      <circle cx="17" cy="8" r="3" />
+      <path d="M3.5 21a6 6 0 0 1 7-5.9" />
+      <path d="M13.5 15.1a6 6 0 0 1 7 5.9" />
+      <path d="M8.5 20a4.5 4.5 0 0 1 7 0" />
+    </>
+  ),
+  skills: (
+    <>
+      <path d="M12 3v4" />
+      <path d="M8 5.5 10 9" />
+      <path d="M16 5.5 14 9" />
+      <path d="M5 13h14" />
+      <path d="M7 13v7h10v-7" />
+      <path d="M10 17h4" />
+    </>
+  ),
+  living: (
+    <>
+      <path d="M4 11 12 4l8 7" />
+      <path d="M6 10v10h12V10" />
+      <path d="M9 20v-5h6v5" />
+      <path d="M12 8v2" />
+    </>
+  ),
   chat: (
     <>
       <path d="M4 5h16v10H8l-4 4V5Z" />
@@ -87,4 +114,3 @@ export function Icon({ name, className = "size-8" }: IconProps) {
     </svg>
   );
 }
-

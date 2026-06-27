@@ -5,6 +5,8 @@ import { Icon } from "./Icon";
 type ServiceCardProps = {
   service: {
     title: string;
+    code: string;
+    group: string;
     href: string;
     summary: string;
     image: string;
@@ -16,7 +18,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
   return (
     <Link
       href={service.href}
-      className="group overflow-hidden rounded-lg bg-white shadow-[0_18px_60px_rgba(8,47,99,0.08)] transition hover:-translate-y-1 hover:shadow-[0_22px_70px_rgba(8,47,99,0.13)]"
+      className="group overflow-hidden rounded-lg border border-border-soft/70 bg-white shadow-[0_18px_60px_rgba(8,47,99,0.08)] transition hover:-translate-y-1 hover:shadow-[0_22px_70px_rgba(8,47,99,0.13)]"
     >
       <div className="relative aspect-[4/3]">
         <Image
@@ -31,10 +33,12 @@ export function ServiceCard({ service }: ServiceCardProps) {
         <div className="absolute left-1/2 top-0 flex size-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border-soft bg-white text-teal shadow-[0_12px_32px_rgba(8,47,99,0.1)]">
           <Icon name={service.icon} className="size-8" />
         </div>
-        <h3 className="text-xl font-bold text-navy">{service.title}</h3>
+        <p className="text-xs font-bold uppercase tracking-[0.14em] text-teal">
+          {service.code} / {service.group}
+        </p>
+        <h3 className="mt-2 text-xl font-bold text-navy">{service.title}</h3>
         <p className="mt-3 text-sm leading-6 text-muted">{service.summary}</p>
       </div>
     </Link>
   );
 }
-

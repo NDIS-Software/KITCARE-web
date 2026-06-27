@@ -5,9 +5,9 @@ import { NdisMarkPlaceholder } from "./NdisMarkPlaceholder";
 export function SiteFooter() {
   return (
     <footer className="border-t border-border-soft bg-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 lg:grid-cols-[1.2fr_1fr_1fr_220px]">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 lg:grid-cols-[1.15fr_0.8fr_1.2fr_260px]">
         <div>
-          <Link href="/" aria-label="KITCARE home">
+          <Link href="/" aria-label="KIT Care home">
             <span className="block text-4xl font-bold leading-none text-navy">
               KIT<span className="text-teal">CARE</span>
             </span>
@@ -17,7 +17,7 @@ export function SiteFooter() {
           </Link>
           <p className="mt-5 max-w-sm text-sm leading-7 text-muted">
             Personalised NDIS support that helps people live with confidence,
-            independence, and connection.
+            independence, and connection across Melbourne.
           </p>
         </div>
         <div>
@@ -36,7 +36,7 @@ export function SiteFooter() {
           <h2 className="text-sm font-bold uppercase tracking-[0.14em] text-navy">
             Services
           </h2>
-          <div className="mt-4 flex flex-col gap-3 text-sm text-muted">
+          <div className="mt-4 grid gap-3 text-sm text-muted sm:grid-cols-2 lg:grid-cols-1">
             {services.map((service) => (
               <Link
                 key={service.href}
@@ -52,7 +52,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-border-soft">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-5 text-xs text-muted md:flex-row md:items-center md:justify-between">
-          <p>© 2026 KITCARE. All rights reserved.</p>
+          <p>Copyright 2026 KIT Care. All rights reserved.</p>
           <div className="flex gap-5">
             <Link href="/privacy" className="hover:text-teal">
               Privacy Policy
@@ -66,4 +66,3 @@ export function SiteFooter() {
     </footer>
   );
 }
-

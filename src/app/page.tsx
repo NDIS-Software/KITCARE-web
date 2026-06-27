@@ -7,7 +7,14 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { ServiceCard } from "@/components/ServiceCard";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { company, faqs, services, trustPoints, whyChooseUs } from "@/lib/content";
+import {
+  carePrinciples,
+  company,
+  faqs,
+  featuredServices,
+  trustPoints,
+  whyChooseUs,
+} from "@/lib/content";
 
 export default function Home() {
   return (
@@ -15,18 +22,18 @@ export default function Home() {
       <SiteHeader />
       <main className="bg-background">
         <section className="relative overflow-hidden">
-          <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 lg:min-h-[620px] lg:grid-cols-[0.9fr_1.1fr] lg:py-14">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 lg:min-h-[640px] lg:grid-cols-[0.9fr_1.1fr] lg:py-14">
             <div className="max-w-xl">
               <p className="text-base font-semibold text-teal">
                 {company.registrationLabel}
               </p>
               <h1 className="mt-5 text-4xl font-bold leading-[1.08] text-navy sm:text-5xl md:text-6xl">
-                Support that helps you live with confidence
+                Quality support. Everyday confidence.
               </h1>
               <p className="mt-7 text-lg leading-8 text-muted">
-                KITCARE provides personalised support that empowers you to live
-                independently, connect with your community, and achieve your
-                goals.
+                KIT Care provides personalised NDIS support across Melbourne
+                that empowers you to live independently, connect with your
+                community, and achieve your goals.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <ButtonLink href="/services">Explore Services</ButtonLink>
@@ -35,10 +42,10 @@ export default function Home() {
                 </ButtonLink>
               </div>
             </div>
-            <div className="relative min-h-[360px] overflow-hidden rounded-lg bg-sky-soft lg:min-h-[480px]">
+            <div className="relative min-h-[360px] overflow-hidden rounded-lg bg-sky-soft lg:min-h-[500px]">
               <Image
-                src="/images/hero-support.png"
-                alt="Support worker assisting a participant in the community"
+                src="/images/generated/melbourne-disability-support-hero.png"
+                alt="Support worker walking with a wheelchair user in a sunny Melbourne park"
                 fill
                 priority
                 className="object-cover"
@@ -49,7 +56,7 @@ export default function Home() {
         </section>
 
         <section className="border-y border-border-soft bg-white">
-          <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 md:grid-cols-2 lg:grid-cols-[repeat(4,1fr)_220px] lg:items-center">
+          <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 md:grid-cols-2 lg:grid-cols-[repeat(4,1fr)_260px] lg:items-center">
             {trustPoints.map((point) => (
               <div
                 key={point.title}
@@ -67,10 +74,10 @@ export default function Home() {
           <div className="mx-auto max-w-7xl">
             <SectionHeader
               title="Our Services"
-              description="Flexible support designed around your goals and lifestyle."
+              description="Flexible support designed around your goals, routines, and lifestyle."
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {services.map((service) => (
+              {featuredServices.map((service) => (
                 <ServiceCard key={service.href} service={service} />
               ))}
             </div>
@@ -85,23 +92,23 @@ export default function Home() {
         <section className="px-6 py-20">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-start">
             <div>
-              <SectionHeader title="About KITCARE" align="left" />
+              <SectionHeader title="About KIT Care" align="left" />
               <p className="mt-6 max-w-xl text-base leading-8 text-muted">
-                We are a registered NDIS provider committed to delivering
-                high-quality, personalised support. Our team works with you and
-                your family to understand your needs and create support that
-                fits your life.
+                We are a registered NDIS provider in Melbourne committed to
+                delivering high-quality, personalised support. Our team works
+                with you and your family to understand your needs and create
+                support that fits your life.
               </p>
               <Link
                 href="/about"
                 className="mt-7 inline-flex text-sm font-bold text-teal hover:text-teal-dark"
               >
-                Learn more about us →
+                Learn more about us -&gt;
               </Link>
               <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-lg bg-sky-soft">
                 <Image
                   src="/images/personal-care.png"
-                  alt="KITCARE support worker speaking with a participant"
+                  alt="KIT Care support worker speaking with a participant"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -109,7 +116,7 @@ export default function Home() {
               </div>
             </div>
             <div className="lg:border-l lg:border-border-soft lg:pl-12">
-              <SectionHeader title="Why choose KITCARE?" align="left" />
+              <SectionHeader title="Why choose KIT Care?" align="left" />
               <div className="mt-8 divide-y divide-border-soft">
                 {whyChooseUs.map((item) => (
                   <div key={item.title} className="flex gap-5 py-5 first:pt-0">
@@ -127,6 +134,59 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="bg-sky-soft px-6 py-20">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              title="How we support people"
+              description="Our service attitude is simple: respectful, practical, warm, and focused on each participant's real life."
+            />
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {carePrinciples.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-lg bg-white p-7 shadow-[0_18px_50px_rgba(8,47,99,0.07)]"
+                >
+                  <Icon name={item.icon} className="size-10 text-teal" />
+                  <h3 className="mt-5 text-xl font-bold text-navy">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-muted">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-20">
+          <div className="mx-auto grid max-w-7xl overflow-hidden rounded-lg border border-border-soft bg-white shadow-[0_24px_70px_rgba(8,47,99,0.08)] lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="relative min-h-[320px]">
+              <Image
+                src="/images/generated/ndis-support-services-collage.png"
+                alt="Collage of NDIS support services including personal care, household tasks, transport, and group activities"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 58vw, 100vw"
+              />
+            </div>
+            <div className="flex flex-col justify-center bg-teal p-8 text-white md:p-10">
+              <h2 className="text-3xl font-bold leading-tight">
+                Proudly supporting Melbourne communities
+              </h2>
+              <p className="mt-5 leading-7 text-white/88">
+                KIT Care supports participants, families, and support networks
+                with services that feel personal, practical, and dependable.
+              </p>
+              <div className="mt-8">
+                <ButtonLink href="/contact" variant="light">
+                  Get in Touch
+                </ButtonLink>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="px-6 pb-20">
           <div className="mx-auto max-w-7xl rounded-lg bg-sky-soft p-6 md:p-8">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -134,7 +194,7 @@ export default function Home() {
                 Frequently asked questions
               </h2>
               <Link href="/contact" className="text-sm font-bold text-teal">
-                Ask us a question →
+                Ask us a question -&gt;
               </Link>
             </div>
             <div className="mt-6 divide-y divide-border-soft rounded-md border border-border-soft bg-white">

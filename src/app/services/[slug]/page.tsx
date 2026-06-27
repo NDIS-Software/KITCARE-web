@@ -53,12 +53,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 src={service.image}
                 alt={`${service.title} support`}
                 fill
+                priority
                 className="object-cover"
                 sizes="(min-width: 1024px) 48vw, 100vw"
               />
             </div>
             <div>
               <Icon name={service.icon} className="size-12 text-teal" />
+              <p className="mt-5 text-sm font-bold uppercase tracking-[0.14em] text-teal">
+                NDIS {service.code} / {service.group}
+              </p>
               <h2 className="mt-5 text-3xl font-bold text-navy">
                 Support that fits your routines
               </h2>
@@ -100,4 +104,3 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     </>
   );
 }
-

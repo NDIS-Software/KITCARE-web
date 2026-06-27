@@ -8,7 +8,7 @@ import { company } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact KITCARE to ask about NDIS support services and next steps.",
+    "Contact KIT Care to ask about NDIS support services and next steps.",
 };
 
 export default function ContactPage() {
@@ -17,7 +17,7 @@ export default function ContactPage() {
       <SiteHeader />
       <main>
         <PageHero
-          title="Contact KITCARE"
+          title="Contact KIT Care"
           description="Talk with our team about your support needs, service options, and how we may be able to help."
         />
         <section className="px-6 py-20">
@@ -41,7 +41,7 @@ export default function ContactPage() {
                 </p>
                 <p className="text-sm leading-6">
                   If you need urgent medical help or are in immediate danger,
-                  call emergency services. KITCARE contact channels are for
+                  call emergency services. KIT Care contact channels are for
                   service enquiries and general support questions.
                 </p>
               </div>
@@ -54,4 +54,3 @@ export default function ContactPage() {
     </>
   );
 }
-

@@ -10,7 +10,7 @@ import { services } from "@/lib/content";
 export const metadata: Metadata = {
   title: "NDIS Services",
   description:
-    "Explore KITCARE NDIS services including Personal Care, Community Participation, Household Tasks, and Travel & Transport.",
+    "Explore KIT Care NDIS services in Melbourne including Personal Care, Travel & Transport, Household Tasks, Community Participation, and other support groups.",
 };
 
 export default function ServicesPage() {
@@ -20,15 +20,15 @@ export default function ServicesPage() {
       <main>
         <PageHero
           title="NDIS support services designed around your goals"
-          description="Explore flexible supports that help with daily routines, community connection, household tasks, and transport."
+          description="Explore flexible supports that help with daily routines, community connection, household tasks, transport, life skills, and group activities."
         />
         <section className="bg-sky-soft px-6 py-20">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
-              title="Our core services"
-              description="Each service page explains what support may include, who it may help, and how KITCARE approaches the service."
+              title="Our registered support groups"
+              description="Each service page explains what support may include, who it may help, and how KIT Care approaches the service."
             />
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
                 <ServiceCard key={service.href} service={service} />
               ))}
@@ -41,7 +41,7 @@ export default function ServicesPage() {
             <div className="grid gap-5 md:grid-cols-3">
               {[
                 ["Talk with us", "We learn about your goals, routines, and support needs."],
-                ["Plan support", "We match services to your preferences and NDIS plan."],
+                ["Plan support", "We match services to your preferences, provider registration groups, and NDIS plan."],
                 ["Review together", "Support can adapt as your needs and goals change."],
               ].map(([title, description]) => (
                 <div key={title} className="rounded-lg border border-border-soft p-6">
@@ -62,4 +62,3 @@ export default function ServicesPage() {
     </>
   );
 }
-

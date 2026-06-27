@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "KITCARE privacy policy draft for review.",
+  description: "KIT Care privacy policy draft for review.",
 };
 
 export default function PrivacyPage() {
@@ -15,12 +15,12 @@ export default function PrivacyPage() {
       <main>
         <PageHero
           title="Privacy Policy"
-          description="This draft page should be reviewed by KITCARE before publication."
+          description="This draft page should be reviewed by KIT Care before publication."
         />
         <section className="px-6 py-20">
           <div className="mx-auto max-w-3xl text-base leading-8 text-muted">
             <p>
-              KITCARE respects your privacy. Information submitted through this
+              KIT Care respects your privacy. Information submitted through this
               website should be used only to respond to enquiries and provide
               relevant service information.
             </p>
@@ -36,4 +36,3 @@ export default function PrivacyPage() {
     </>
   );
 }
-

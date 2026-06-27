@@ -6,7 +6,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border-soft/70 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-6 py-5">
-        <Link href="/" className="shrink-0" aria-label="KITCARE home">
+        <Link href="/" className="shrink-0" aria-label="KIT Care home">
           <span className="block text-3xl font-bold leading-none text-navy">
             KIT<span className="text-teal">CARE</span>
           </span>
@@ -79,4 +79,3 @@ export function SiteHeader() {
     </header>
   );
 }
-

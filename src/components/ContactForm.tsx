@@ -49,7 +49,7 @@ export function ContactForm() {
       </div>
       <p className="text-xs leading-5 text-muted">
         This form is prepared for a future email integration. For now, please
-        contact KITCARE by phone or email.
+        contact KIT Care by phone or email.
       </p>
       <button
         type="button"
@@ -60,4 +60,3 @@ export function ContactForm() {
     </form>
   );
 }
-

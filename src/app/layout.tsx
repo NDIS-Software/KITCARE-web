@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "KITCARE | Registered NDIS Provider",
-    template: "%s | KITCARE",
+    default: "KIT Care | Registered NDIS Provider",
+    template: "%s | KIT Care",
   },
   description:
-    "KITCARE provides personalised NDIS support services that help people live with confidence, independence, and connection.",
+    "KIT Care provides personalised NDIS support services in Melbourne that help people live with confidence, independence, and connection.",
   metadataBase: new URL("https://kitcare.com.au"),
 };
 
