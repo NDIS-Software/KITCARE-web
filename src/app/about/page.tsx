@@ -6,7 +6,7 @@ import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { carePrinciples, company, whyChooseUs } from "@/lib/content";
+import { aboutTrustAreas, carePrinciples, company, whyChooseUs } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -27,8 +27,8 @@ export default function AboutPage() {
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-sky-soft">
               <Image
-                src="/images/personal-care.png"
-                alt="Support worker speaking with a participant"
+                src="/images/generated/family-coordinator-support-meeting.png"
+                alt="Participant, family member, and support worker discussing support preferences"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -38,19 +38,24 @@ export default function AboutPage() {
               <SectionHeader title="About KIT Care" align="left" />
               <p className="mt-6 text-base leading-8 text-muted">
                 We work with participants, families, and support networks to
-                create practical supports that fit real life. Our approach is
-                calm, reliable, and focused on helping people build confidence
-                at home and in the community.
+                create practical supports that fit real life. Our approach
+                starts with the participant&apos;s goals, preferred routines,
+                communication needs, and choices, then turns those details into
+                support that feels clear and respectful.
               </p>
               <p className="mt-5 text-base leading-8 text-muted">
                 As a registered NDIS provider, KIT Care is committed to
                 respectful communication, safe support practices, and services
-                that place participant choice at the centre.
+                that place participant choice at the centre. We understand that
+                support can happen in personal spaces, so privacy and dignity
+                must be part of everyday practice.
               </p>
               <p className="mt-5 text-base leading-8 text-muted">
                 Our local focus is {company.serviceArea}. We support people in
                 everyday settings: home, community, appointments, transport,
-                centre activities, and routines that build independence.
+                centre activities, and routines that build independence. Where
+                participants choose, families, advocates, and coordinators can
+                be included in conversations.
               </p>
             </div>
           </div>
@@ -67,6 +72,30 @@ export default function AboutPage() {
                 <p className="mt-4 leading-7 text-muted">{description}</p>
               </div>
             ))}
+          </div>
+        </section>
+        <section className="px-6 py-20">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              title="How we work"
+              description="KIT Care uses clear service principles behind the scenes, but the website keeps them practical: respectful support, informed choice, privacy, feedback, and reliable communication."
+            />
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {aboutTrustAreas.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-lg border border-border-soft bg-white p-7"
+                >
+                  <Icon name={item.icon} className="size-10 text-teal" />
+                  <h3 className="mt-5 text-xl font-bold text-navy">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-muted">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
         <section className="px-6 py-20">

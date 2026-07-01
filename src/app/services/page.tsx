@@ -49,8 +49,10 @@ export default function ServicesPage() {
                     Not sure which support fits?
                   </h2>
                   <p className="mt-3 text-sm leading-6 text-muted">
-                    Talk with us about your goals, routines, and plan. We can
-                    help you understand which support group may be relevant.
+                    Talk with us about your goals, routines, service area, and
+                    the kind of help you are looking for. You do not need to
+                    know the registration group before contacting us; we can
+                    explain options in plain language.
                   </p>
                   <div className="mt-6">
                     <ButtonLink href="/contact" variant="secondary">
@@ -126,8 +128,8 @@ export default function ServicesPage() {
               />
               <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-lg bg-sky-soft">
                 <Image
-                  src="/images/generated/kitcare-team-support-planning.png"
-                  alt="KIT Care team planning support around participant goals"
+                  src="/images/generated/support-planning-tabletop.png"
+                  alt="Support planning documents, weekly planner, and notes on a table"
                   fill
                   quality={90}
                   className="object-cover"

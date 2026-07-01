@@ -5,6 +5,8 @@ export const company = {
   email: "hello@kitcare.com.au",
   serviceArea: "Melbourne, Victoria",
   addressLine: "Supporting participants across Melbourne communities",
+  responseNote:
+    "We aim to respond to general enquiries during business hours and will let you know if we need more information before support can be discussed.",
 };
 
 export const navigation = [
@@ -22,7 +24,7 @@ export const services = [
     slug: "personal-care",
     href: "/services/personal-care",
     summary:
-      "Support with daily living routines so you can feel comfortable and confident at home.",
+      "Respectful assistance with everyday routines such as personal presentation, meals, prompts, mobility, and comfort at home. Support is shaped around privacy, preferences, communication needs, and the participant's own pace so daily life can feel steadier and more manageable.",
     image: "/images/generated/personal-care-morning-routine.png",
     ctaImage: "/images/generated/personal-care-meal-support.png",
     icon: "care",
@@ -75,7 +77,7 @@ export const services = [
     slug: "travel-transport",
     href: "/services/travel-transport",
     summary:
-      "Safe and reliable support for appointments, activities, shopping, and community access.",
+      "Practical support to get to appointments, shopping, errands, social activities, and community places with more confidence. We help plan the journey, prepare for timing and access needs, and support familiar travel routines where this aligns with participant goals.",
     image: "/images/generated/travel-clinic-appointment-support.png",
     ctaImage: "/images/generated/travel-shopping-errands.png",
     icon: "transport",
@@ -128,12 +130,12 @@ export const services = [
     slug: "daily-tasks-shared-living",
     href: "/services/daily-tasks-shared-living",
     summary:
-      "Practical assistance with shared living routines, daily tasks, and home-based independence.",
-    image: "/images/generated/shared-living-weekly-planning.png",
-    ctaImage: "/images/generated/shared-living-meal-routine.png",
+      "Support with daily responsibilities in shared living or home-based routines, including planning, meals, household rhythms, and practical prompts. The focus is on clearer expectations, participant choice, and steady routines that make everyday living feel more organised.",
+    image: "/images/generated/shared-living-wheelchair-kitchen-routine.png",
+    ctaImage: "/images/generated/shared-living-meal-walker-planning.png",
     icon: "home",
     detail:
-      "Daily Tasks and Shared Living support is focused on practical routines, shared responsibilities, and confidence at home. This content should be reviewed against the current NDIS registration wording before launch for providers using this group after 1 July 2026.",
+      "Daily Tasks and Shared Living support is focused on practical routines, shared responsibilities, and confidence at home. KIT Care works with the participant and their support network to understand household rhythms, preferences, and the kind of assistance that makes daily life more manageable.",
     includes: [
       "Daily routine planning",
       "Shared living task support",
@@ -155,17 +157,17 @@ export const services = [
       {
         title: "Shared responsibilities",
         description: "Support with routines that make shared living easier.",
-        image: "/images/generated/shared-living-weekly-planning.png",
+        image: "/images/generated/shared-living-wheelchair-kitchen-routine.png",
       },
       {
         title: "Meal planning",
         description: "Prompts and support around everyday kitchen routines.",
-        image: "/images/generated/shared-living-meal-routine.png",
+        image: "/images/generated/shared-living-meal-walker-planning.png",
       },
       {
         title: "Steady home rhythm",
         description: "Consistent support for predictable daily tasks.",
-        image: "/images/generated/supported-independent-living-home-routine.png",
+        image: "/images/generated/shared-living-collaborative-laundry-support.png",
       },
     ],
     relatedSlugs: [
@@ -181,7 +183,7 @@ export const services = [
     slug: "supported-independent-living",
     href: "/services/supported-independent-living",
     summary:
-      "Tailored support for participants who need help living more independently at home.",
+      "Regular support for participants who need assistance to live more independently at home. Services can include daily routines, shared household responsibilities, skill building, and practical planning while keeping dignity, safety, and participant choice at the centre.",
     image: "/images/generated/sil-shared-kitchen-evening.png",
     ctaImage: "/images/generated/sil-kitchen-skills.png",
     icon: "living",
@@ -234,9 +236,9 @@ export const services = [
     slug: "innovative-community-participation",
     href: "/services/innovative-community-participation",
     summary:
-      "Creative, goal-based support to build confidence, connection, and community skills.",
-    image: "/images/generated/group-centre-art-table.png",
-    ctaImage: "/images/generated/community-creative-workshop.png",
+      "Goal-based community support for participants who want to explore interests, build confidence, and take part in meaningful local opportunities. Activities are planned around comfort, preferences, practical skills, and the participant's own idea of connection.",
+    image: "/images/generated/community-art-arm-sling-participation.png",
+    ctaImage: "/images/generated/community-library-cane-computer.png",
     icon: "community",
     detail:
       "Innovative Community Participation support helps participants explore meaningful ways to build capacity, confidence, and connection in community settings.",
@@ -261,17 +263,17 @@ export const services = [
       {
         title: "Trying something new",
         description: "Explore interests with practical support nearby.",
-        image: "/images/generated/community-library-planning.png",
+        image: "/images/generated/community-art-arm-sling-participation.png",
       },
       {
         title: "Local opportunities",
         description: "Find community options that suit your goals and comfort.",
-        image: "/images/generated/community-creative-workshop.png",
+        image: "/images/generated/community-library-cane-computer.png",
       },
       {
         title: "Skill practice",
         description: "Build confidence in real community settings.",
-        image: "/images/generated/ndis-support-services-collage.png",
+        image: "/images/generated/community-wheelchair-market-choice.png",
       },
     ],
     relatedSlugs: [
@@ -287,8 +289,8 @@ export const services = [
     slug: "development-life-skills",
     href: "/services/development-life-skills",
     summary:
-      "Skill-building support for everyday routines, decision-making, confidence, and independence.",
-    image: "/images/generated/life-skills-budget-tabletop.png",
+      "Everyday skill-building support for routines, planning, cooking, budgeting, communication, and decision-making. We break goals into practical steps that can be practised in real settings, helping participants build confidence without turning support into a classroom exercise.",
+    image: "/images/generated/life-skills-meal-budget-detail.png",
     ctaImage: "/images/generated/life-skills-cooking-confidence.png",
     icon: "skills",
     detail:
@@ -314,7 +316,7 @@ export const services = [
       {
         title: "Everyday decisions",
         description: "Support to plan, choose, and practise daily tasks.",
-        image: "/images/generated/life-skills-budget-tabletop.png",
+        image: "/images/generated/life-skills-meal-budget-detail.png",
       },
       {
         title: "Community confidence",
@@ -340,7 +342,7 @@ export const services = [
     slug: "household-tasks",
     href: "/services/household-tasks",
     summary:
-      "Practical support to keep your home safe, clean, organised, and comfortable.",
+      "Practical help with light household tasks such as laundry, kitchen routines, linen, cleaning prompts, and organising living spaces. Support respects how the participant wants their home to feel while helping make routines clearer, safer, and easier to maintain.",
     image: "/images/generated/household-linen-organisation-detail.png",
     ctaImage: "/images/generated/household-laundry-support.png",
     icon: "home",
@@ -393,9 +395,9 @@ export const services = [
     slug: "community-participation",
     href: "/services/community-participation",
     summary:
-      "Build skills, pursue interests, and take part in community activities that matter to you.",
-    image: "/images/generated/community-market-choice-support.png",
-    ctaImage: "/images/generated/community-skills-library.png",
+      "Support to attend activities, pursue interests, meet people, and stay connected with places that matter. Community participation can include planning, confidence building, travel routines, social support, and practical help to make local activities feel more achievable.",
+    image: "/images/generated/community-wheelchair-market-choice.png",
+    ctaImage: "/images/generated/community-library-cane-computer.png",
     icon: "community",
     detail:
       "Community Participation support helps you stay connected, develop skills, and take part in activities that are meaningful to you.",
@@ -420,17 +422,17 @@ export const services = [
       {
         title: "Activities that matter",
         description: "Support to attend places and groups you value.",
-        image: "/images/generated/community-market-choice-support.png",
+        image: "/images/generated/community-wheelchair-market-choice.png",
       },
       {
         title: "Meeting people",
         description: "Build confidence around social and community settings.",
-        image: "/images/generated/ndis-support-services-collage.png",
+        image: "/images/generated/community-art-arm-sling-participation.png",
       },
       {
-        title: "Getting there",
-        description: "Plan community access with practical travel support.",
-        image: "/images/community-participation.png",
+        title: "Finding local options",
+        description: "Use familiar local places to practise confidence and choice.",
+        image: "/images/generated/community-library-cane-computer.png",
       },
     ],
     relatedSlugs: [
@@ -446,7 +448,7 @@ export const services = [
     slug: "group-centre-activities",
     href: "/services/group-centre-activities",
     summary:
-      "Inclusive group activities that support social connection, participation, and confidence.",
+      "Structured group or centre-based activities that support social connection, participation, creativity, and confidence. Programs are matched to interests, comfort levels, and support needs so participants can join shared activities in a welcoming and respectful way.",
     image: "/images/generated/group-centre-art-table.png",
     ctaImage: "/images/generated/group-centre-social-lunch.png",
     icon: "group",
@@ -498,29 +500,29 @@ export const serviceScenarios = [
   {
     title: "Daily routines",
     description:
-      "Support for personal care, meals, home rhythms, and everyday confidence.",
+      "Support can begin with practical daily routines: getting ready, preparing meals, keeping track of the week, and feeling more settled at home. The goal is not to take over, but to make each step clearer and easier to repeat.",
     image: "/images/generated/getting-started-support-conversation.png",
     icon: "care",
   },
   {
     title: "Getting out",
     description:
-      "Travel support for appointments, errands, activities, and community access.",
-    image: "/images/generated/travel-clinic-appointment-support.png",
+      "For appointments, errands, activities, and community access, support can include planning the trip, preparing before leaving, navigating the destination, and building familiar travel routines over time.",
+    image: "/images/generated/melbourne-library-community-support.png",
     icon: "transport",
   },
   {
     title: "Home confidence",
     description:
-      "Practical help with household tasks, shared living, and safer home routines.",
+      "Household and shared living support can help make home routines more predictable, from laundry and kitchen tasks to planning meals, organising spaces, and keeping daily responsibilities manageable.",
     image: "/images/generated/household-linen-organisation-detail.png",
     icon: "home",
   },
   {
     title: "Community connection",
     description:
-      "Support to build social confidence, explore interests, and take part locally.",
-    image: "/images/community-participation.png",
+      "Community support is shaped around the participant's interests, whether that means visiting a library, joining a group activity, attending a market, or practising social confidence in familiar local places.",
+    image: "/images/generated/community-art-arm-sling-participation.png",
     icon: "community",
   },
 ];
@@ -528,19 +530,20 @@ export const serviceScenarios = [
 export const gettingStartedSteps = [
   {
     title: "Talk with us",
-    description: "We learn about your goals, routines, preferences, and plan.",
+    description:
+      "We start with a clear conversation about goals, daily routines, preferences, communication needs, service area, and the type of support being considered. Family members, advocates, or support coordinators can be included when the participant wants them involved.",
     icon: "chat",
   },
   {
     title: "Plan support",
     description:
-      "We shape support around the service group, your needs, and your choices.",
+      "Support is shaped around the relevant NDIS service group, practical routines, safety considerations, worker matching, timing, and what the participant wants to achieve. The plan should be easy to understand before services begin.",
     icon: "person",
   },
   {
     title: "Review together",
     description:
-      "Support can adapt as your confidence, routines, or circumstances change.",
+      "Once support starts, communication stays open. Routines, goals, worker fit, and practical arrangements can be reviewed as circumstances change so support remains useful, respectful, and aligned with participant choice.",
     icon: "heart",
   },
 ];
@@ -572,6 +575,96 @@ export const trustPoints = [
   {
     title: "Choice and control",
     icon: "heart",
+  },
+];
+
+export const audienceSupport = [
+  {
+    title: "For participants",
+    description:
+      "Support should feel practical, respectful, and connected to everyday life. We focus on goals, routines, preferences, privacy, communication needs, and the participant's right to make informed choices about how support is delivered.",
+    icon: "person",
+  },
+  {
+    title: "For families",
+    description:
+      "Families often want clear communication and confidence that support is planned thoughtfully. With participant consent, we can involve family members in conversations about routines, preferences, changes, feedback, and what is working well.",
+    icon: "heart",
+  },
+  {
+    title: "For coordinators",
+    description:
+      "Support coordinators need a provider who can explain service fit clearly. We keep conversations focused on the participant's goals, relevant support groups, practical availability, and the next step required before support can begin.",
+    icon: "chat",
+  },
+];
+
+export const serviceAreaHighlights = [
+  "Inner Melbourne",
+  "Northern suburbs",
+  "Western suburbs",
+  "South Eastern suburbs",
+  "Local community settings",
+  "Appointments and activities",
+];
+
+export const feedbackCards = [
+  {
+    initials: "FM",
+    label: "Family member",
+    quote:
+      "The support felt calm and organised from the first conversation. We appreciated that routines, communication preferences, and small details at home were discussed before services started, rather than being treated as an afterthought.",
+  },
+  {
+    initials: "SC",
+    label: "Support coordinator",
+    quote:
+      "The team explained service fit in plain language and kept the discussion focused on the participant's goals. It made it easier to understand what support could look like without needing to know every registration group first.",
+  },
+  {
+    initials: "PT",
+    label: "Participant feedback",
+    quote:
+      "I felt listened to when we talked about my weekly routine. The support was not about rushing through tasks; it was about helping me feel more confident doing the things that matter in my own way.",
+  },
+];
+
+export const aboutTrustAreas = [
+  {
+    title: "Person-centred support",
+    description:
+      "We start with the person, not a checklist. Support is shaped around goals, strengths, daily routines, communication needs, and preferences so participants can stay involved in decisions that affect their own life.",
+    icon: "person",
+  },
+  {
+    title: "Choice and control",
+    description:
+      "Participants should be supported to understand options, ask questions, include trusted people where they choose, and make informed decisions. Our role is to assist decision-making, not remove it.",
+    icon: "heart",
+  },
+  {
+    title: "Privacy and dignity",
+    description:
+      "Support often happens in personal spaces and everyday routines. We treat information carefully, respect privacy, and approach home, personal care, and communication with dignity and discretion.",
+    icon: "shield",
+  },
+  {
+    title: "Safe, respectful support",
+    description:
+      "Support is planned with practical safety in mind while still respecting independence and dignity of risk. We consider the setting, task, preferences, and any changes that may affect support.",
+    icon: "hands",
+  },
+  {
+    title: "Feedback is welcome",
+    description:
+      "Participants, families, advocates, and coordinators should feel able to raise concerns, ask for changes, or share what is working. Feedback helps improve communication, matching, and service quality.",
+    icon: "chat",
+  },
+  {
+    title: "Continuity of support",
+    description:
+      "Reliable support depends on planning, communication, and practical backup arrangements. If routines or worker availability change, the priority is to communicate clearly and reduce avoidable disruption.",
+    icon: "award",
   },
 ];
 
@@ -629,18 +722,38 @@ export const whyChooseUs = [
 
 export const faqs = [
   {
-    question: "What is the NDIS?",
-    answer:
-      "The National Disability Insurance Scheme supports eligible Australians with disability to access reasonable and necessary supports.",
-  },
-  {
     question: "How do I get started with KIT Care?",
     answer:
-      "Contact our team and we will talk through your goals, support needs, and the services that may suit you.",
+      "Contact us by phone or email and tell us what kind of support you are looking for. We will talk through goals, routines, service area, timing, and whether the relevant support group appears to fit before any service arrangement is discussed.",
   },
   {
-    question: "Can I choose my support worker?",
+    question: "Do I need to know the exact NDIS support category?",
     answer:
-      "We aim to match you with support workers who suit your preferences, routines, and goals where available.",
+      "No. Many people begin with a practical need, such as help at home, transport, community access, or building life skills. We can explain which service group may be relevant in plain language and keep the conversation focused on real support.",
+  },
+  {
+    question: "Can my family, advocate or support coordinator contact you?",
+    answer:
+      "Yes, when the participant wants them involved. We can speak with family members, advocates, nominees, or support coordinators to understand goals, communication preferences, service fit, and next steps while keeping participant choice and consent at the centre.",
+  },
+  {
+    question: "Can I choose or request a preferred support worker?",
+    answer:
+      "You can share preferences such as communication style, routine, timing, interests, gender preference, or cultural considerations. We aim to match support thoughtfully where availability allows, and we can review arrangements if something is not working well.",
+  },
+  {
+    question: "What areas do you support?",
+    answer:
+      "KIT Care supports participants across Melbourne communities, including home, appointments, local activities, errands, and community settings. Because availability can vary by suburb, support type, and timing, it is best to contact us with your location and preferred schedule.",
+  },
+  {
+    question: "How do you protect privacy and dignity?",
+    answer:
+      "We treat personal information carefully and approach support with respect for privacy, home routines, communication needs, and personal preferences. This is especially important where support involves personal care, home tasks, family conversations, or sensitive daily living details.",
+  },
+  {
+    question: "What if I want to give feedback or raise a concern?",
+    answer:
+      "Feedback is welcome from participants, families, advocates, and coordinators. You can raise concerns, request changes, or share positive feedback so support can be reviewed and improved. Serious or urgent safety concerns should always be escalated through appropriate emergency channels.",
   },
 ];

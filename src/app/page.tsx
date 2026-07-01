@@ -8,12 +8,16 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
+  audienceSupport,
   company,
   faqs,
+  feedbackCards,
   serviceScenarios,
+  serviceAreaHighlights,
   services,
   trustPoints,
   whyChooseUs,
+  gettingStartedSteps,
 } from "@/lib/content";
 
 export default function Home() {
@@ -118,10 +122,11 @@ export default function Home() {
             <div>
               <SectionHeader title="About KIT Care" align="left" />
               <p className="mt-6 max-w-xl text-base leading-8 text-muted">
-                We are a registered NDIS provider in Melbourne committed to
-                delivering high-quality, personalised support. Our team works
-                with you and your family to understand your needs and create
-                support that fits your life.
+                We are a registered NDIS provider in Melbourne focused on
+                practical, person-centred support. Our team takes time to
+                understand goals, routines, communication preferences, and the
+                people each participant wants involved, so support feels clear,
+                respectful, and connected to daily life.
               </p>
               <Link
                 href="/about"
@@ -161,6 +166,75 @@ export default function Home() {
         <section className="bg-sky-soft px-6 py-20">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
+              title="How support starts"
+              description="Getting started should feel clear, not clinical. These steps explain how KIT Care turns an enquiry into practical support that reflects goals, routines, preferences, and the relevant NDIS service group."
+            />
+            <div className="mt-12 grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-white shadow-[0_18px_60px_rgba(8,47,99,0.08)]">
+                <Image
+                  src="/images/generated/support-planning-tabletop.png"
+                  alt="Support planning documents, weekly planner, and notes on a table"
+                  fill
+                  quality={90}
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 46vw, 100vw"
+                />
+              </div>
+              <div className="grid gap-5">
+                {gettingStartedSteps.map((step, index) => (
+                  <div
+                    key={step.title}
+                    className="grid gap-5 rounded-lg bg-white p-6 shadow-[0_16px_46px_rgba(8,47,99,0.06)] sm:grid-cols-[64px_1fr]"
+                  >
+                    <div className="flex size-14 items-center justify-center rounded-md bg-sky-soft text-teal">
+                      <Icon name={step.icon} className="size-7" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.14em] text-teal">
+                        Step {index + 1}
+                      </p>
+                      <h3 className="mt-2 text-xl font-bold text-navy">
+                        {step.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-7 text-muted">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-20">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              title="Support for participants, families, and coordinators"
+              description="Different people visit a provider website with different questions. This section keeps the message clear for participants, families, advocates, and support coordinators without turning the site into a referral system."
+            />
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {audienceSupport.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-lg border border-border-soft bg-white p-7"
+                >
+                  <Icon name={item.icon} className="size-11 text-teal" />
+                  <h3 className="mt-5 text-xl font-bold text-navy">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-muted">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-sky-soft px-6 py-20">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
               title="Support for real routines"
               description="A richer look at the situations where support can make daily life feel more manageable, connected, and confident."
             />
@@ -192,6 +266,77 @@ export default function Home() {
                     </p>
                   </div>
                 </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-20">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <SectionHeader
+                title="Local support across Melbourne"
+                description="KIT Care supports participants in homes, appointments, errands, community activities, and familiar local places. Availability can vary by suburb, timing, and support type, so we keep service-area conversations practical and honest."
+                align="left"
+              />
+              <div className="mt-7 flex flex-wrap gap-3">
+                {serviceAreaHighlights.map((area) => (
+                  <span
+                    key={area}
+                    className="rounded-md border border-border-soft bg-white px-4 py-2 text-sm font-semibold text-navy"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-7 max-w-xl text-sm leading-7 text-muted">
+                Tell us the suburb, preferred times, and the kind of support you
+                are considering. We can then discuss whether KIT Care appears to
+                be a suitable local fit before any service arrangement is made.
+              </p>
+            </div>
+            <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-border-soft bg-white shadow-[0_18px_60px_rgba(8,47,99,0.08)]">
+              <Image
+                src="/images/generated/melbourne-service-area-map.png"
+                alt="Illustrated Melbourne service area map with location pins"
+                fill
+                quality={90}
+                className="object-cover"
+                sizes="(min-width: 1024px) 48vw, 100vw"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-sky-soft px-6 py-20">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              title="What people appreciate about our support"
+              description="These static feedback examples show the kind of service experience KIT Care aims to provide: clear communication, respectful routines, practical planning, and support that feels personal without becoming complicated."
+            />
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {feedbackCards.map((item) => (
+                <div
+                  key={item.initials}
+                  className="rounded-lg bg-white p-7 shadow-[0_18px_60px_rgba(8,47,99,0.08)]"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="flex size-12 items-center justify-center rounded-full bg-sky-soft text-sm font-bold text-teal">
+                        {item.initials}
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-navy">{item.label}</h3>
+                        <p className="text-sm text-teal" aria-label="Five star feedback">
+                          ★★★★★
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-5 text-sm leading-7 text-muted">
+                    {item.quote}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
