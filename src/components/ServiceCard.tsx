@@ -111,7 +111,7 @@ export function ServiceCard({
   return (
     <Link
       href={service.href}
-      className="group overflow-hidden rounded-lg border border-border-soft/70 bg-white shadow-[0_18px_60px_rgba(8,47,99,0.08)] transition hover:-translate-y-1 hover:shadow-[0_22px_70px_rgba(8,47,99,0.13)]"
+      className="group flex h-full flex-col overflow-hidden rounded-lg border border-border-soft/70 bg-white shadow-[0_18px_60px_rgba(8,47,99,0.08)] transition hover:-translate-y-1 hover:shadow-[0_22px_70px_rgba(8,47,99,0.13)]"
     >
       <div className="relative aspect-[16/10]">
         <Image
@@ -123,7 +123,7 @@ export function ServiceCard({
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
         />
       </div>
-      <div className="relative px-6 pb-7 pt-9">
+      <div className="relative flex flex-1 flex-col px-6 pb-7 pt-9">
         <div className="absolute left-6 top-0 flex size-14 -translate-y-1/2 items-center justify-center rounded-md border border-border-soft bg-white text-teal shadow-[0_12px_32px_rgba(8,47,99,0.1)]">
           <Icon name={service.icon} className="size-7" />
         </div>
@@ -147,7 +147,7 @@ export function ServiceCard({
             ))}
           </ul>
         ) : null}
-        <span className="mt-5 inline-flex text-sm font-bold text-teal group-hover:text-teal-dark">
+        <span className="mt-auto inline-flex pt-5 text-sm font-bold text-teal group-hover:text-teal-dark">
           Learn more -&gt;
         </span>
       </div>

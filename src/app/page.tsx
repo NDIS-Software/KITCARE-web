@@ -4,7 +4,7 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { Icon } from "@/components/Icon";
 import { NdisMarkPlaceholder } from "@/components/NdisMarkPlaceholder";
 import { SectionHeader } from "@/components/SectionHeader";
-import { ServiceCard } from "@/components/ServiceCard";
+import { ServiceCarousel } from "@/components/ServiceCarousel";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
@@ -21,8 +21,6 @@ import {
 } from "@/lib/content";
 
 export default function Home() {
-  const [featuredService, ...supportServices] = services;
-
   return (
     <>
       <SiteHeader />
@@ -82,34 +80,8 @@ export default function Home() {
               title="Support that meets people in real life"
               description="Start with the routines, places, and goals that matter. From there, explore the service groups that may fit."
             />
-            <div className="mt-12 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-              <ServiceCard service={featuredService} variant="featured" />
-              <div className="grid gap-6">
-                {supportServices.slice(0, 2).map((service) => (
-                  <ServiceCard
-                    key={service.href}
-                    service={service}
-                    variant="compact"
-                  />
-                ))}
-                <div className="rounded-lg bg-white p-7 shadow-[0_18px_60px_rgba(8,47,99,0.08)]">
-                  <Icon name="chat" className="size-11 text-teal" />
-                  <h2 className="mt-5 text-2xl font-bold leading-tight text-navy">
-                    Not sure which support fits?
-                  </h2>
-                  <p className="mt-3 text-sm leading-6 text-muted">
-                    Tell us what you want help with. We can talk through daily
-                    routines, transport, home support, and community access.
-                  </p>
-                  <div className="mt-6">
-                    <ButtonLink href="/contact" variant="secondary">
-                      Contact Us
-                    </ButtonLink>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-10 text-center">
+            <ServiceCarousel services={services} />
+            <div className="mt-6 text-center">
               <ButtonLink href="/services" variant="secondary">
                 Explore All Services
               </ButtonLink>
@@ -311,8 +283,7 @@ export default function Home() {
         <section className="bg-sky-soft px-6 py-20">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
-              title="What people appreciate about our support"
-              description="These static feedback examples show the kind of service experience KIT Care aims to provide: clear communication, respectful routines, practical planning, and support that feels personal without becoming complicated."
+              title="Customer Reviews"
             />
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {feedbackCards.map((item) => (

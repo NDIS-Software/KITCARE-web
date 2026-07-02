@@ -1,13 +1,83 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+
+type SubmitState = "error" | "idle" | "sending" | "sent";
+
 export function ContactForm() {
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [feedback, setFeedback] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    setSubmitState("sending");
+    setFeedback("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        body: JSON.stringify({
+          email: formData.get("email"),
+          message: formData.get("message"),
+          name: formData.get("name"),
+          phone: formData.get("phone"),
+          suburb: formData.get("suburb"),
+          website: formData.get("website"),
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+
+      const result = (await response.json().catch(() => ({}))) as {
+        message?: string;
+      };
+
+      if (!response.ok) {
+        throw new Error(result.message || "Unable to send enquiry.");
+      }
+
+      setSubmitState("sent");
+      setFeedback(
+        "Thank you. Your enquiry has been sent to the KIT Care team.",
+      );
+      form.reset();
+    } catch (error) {
+      setSubmitState("error");
+      setFeedback(
+        error instanceof Error
+          ? error.message
+          : "Unable to send enquiry. Please email KIT Care directly.",
+      );
+    }
+  }
+
+  const isSending = submitState === "sending";
+
   return (
-    <form className="grid gap-5 rounded-lg border border-border-soft bg-white p-6 shadow-[0_18px_60px_rgba(8,47,99,0.08)] md:p-7">
+    <form
+      className="grid gap-5 rounded-lg border border-border-soft bg-white p-6 shadow-[0_18px_60px_rgba(8,47,99,0.08)] md:p-7"
+      onSubmit={handleSubmit}
+    >
       <div>
         <h2 className="text-2xl font-bold text-navy">Send an enquiry</h2>
         <p className="mt-3 text-sm leading-7 text-muted">
-          This form is ready for a future Vercel email integration. For now,
-          please use the phone or email details on this page if you need to
-          contact KIT Care.
+          Send your details securely through this form and KIT Care will receive
+          your enquiry by email.
         </p>
+      </div>
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
       <div className="grid gap-2">
         <label htmlFor="name" className="text-sm font-semibold text-navy">
@@ -18,6 +88,7 @@ export function ContactForm() {
           name="name"
           className="min-h-12 rounded-md border border-border-soft px-4 text-foreground outline-none transition focus:border-teal"
           autoComplete="name"
+          required
         />
       </div>
       <div className="grid gap-2">
@@ -30,11 +101,12 @@ export function ContactForm() {
           type="email"
           className="min-h-12 rounded-md border border-border-soft px-4 text-foreground outline-none transition focus:border-teal"
           autoComplete="email"
+          required
         />
       </div>
       <div className="grid gap-2">
         <label htmlFor="phone" className="text-sm font-semibold text-navy">
-          Phone
+          Phone <span className="font-normal text-muted">(optional)</span>
         </label>
         <input
           id="phone"
@@ -64,13 +136,27 @@ export function ContactForm() {
           name="message"
           rows={5}
           className="rounded-md border border-border-soft px-4 py-3 text-foreground outline-none transition focus:border-teal"
+          required
         />
       </div>
+      {feedback ? (
+        <p
+          className={`rounded-md px-4 py-3 text-sm leading-6 ${
+            submitState === "sent"
+              ? "bg-sky-soft text-navy"
+              : "bg-red-50 text-red-700"
+          }`}
+          role="status"
+        >
+          {feedback}
+        </p>
+      ) : null}
       <button
-        type="button"
-        className="min-h-12 rounded-md bg-teal px-6 text-sm font-semibold text-white transition hover:bg-teal-dark"
+        type="submit"
+        disabled={isSending}
+        className="min-h-12 rounded-md bg-teal px-6 text-sm font-semibold text-white transition hover:bg-teal-dark disabled:cursor-not-allowed disabled:bg-muted"
       >
-        Submit Enquiry
+        {isSending ? "Sending..." : "Submit Enquiry"}
       </button>
     </form>
   );

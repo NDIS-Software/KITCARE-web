@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { company, navigation, services } from "@/lib/content";
 import { NdisMarkPlaceholder } from "./NdisMarkPlaceholder";
@@ -8,17 +9,42 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 lg:grid-cols-[1.15fr_0.8fr_1.2fr_260px]">
         <div>
           <Link href="/" aria-label="KIT Care home">
-            <span className="block text-4xl font-bold leading-none text-navy">
-              KIT<span className="text-teal">CARE</span>
-            </span>
-            <span className="text-sm font-medium text-muted">
-              {company.registrationLabel}
-            </span>
+            <Image
+              src="/images/brand/kitcare-logo.png"
+              alt="KIT Care Support Services logo"
+              width={220}
+              height={195}
+              className="h-auto w-48 object-contain"
+            />
           </Link>
           <p className="mt-5 max-w-sm text-sm leading-7 text-muted">
             Personalised NDIS support that helps people live with confidence,
             independence, and connection across Melbourne.
           </p>
+          <div className="mt-5 grid gap-2 text-sm leading-6 text-muted">
+            <p>
+              <strong className="text-navy">ABN:</strong> {company.abn}
+            </p>
+            <p>
+              <strong className="text-navy">Head office:</strong>{" "}
+              {company.headOffice}
+            </p>
+            <p>
+              <strong className="text-navy">Phone:</strong>{" "}
+              <a
+                href={`tel:${company.phone.replaceAll(" ", "")}`}
+                className="hover:text-teal"
+              >
+                {company.phone}
+              </a>
+            </p>
+            <p>
+              <strong className="text-navy">Email:</strong>{" "}
+              <a href={`mailto:${company.email}`} className="hover:text-teal">
+                {company.email}
+              </a>
+            </p>
+          </div>
         </div>
         <div>
           <h2 className="text-sm font-bold uppercase tracking-[0.14em] text-navy">

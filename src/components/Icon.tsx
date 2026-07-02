@@ -96,6 +96,8 @@ const paths: Record<string, React.ReactNode> = {
       <circle cx="12" cy="10" r="2.5" />
     </>
   ),
+  "chevron-left": <path d="m15 18-6-6 6-6" />,
+  "chevron-right": <path d="m9 18 6-6-6-6" />,
 };
 
 export function Icon({ name, className = "size-8" }: IconProps) {

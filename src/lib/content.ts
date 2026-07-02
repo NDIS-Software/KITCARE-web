@@ -1,8 +1,10 @@
 export const company = {
   name: "KIT Care",
   registrationLabel: "Registered NDIS Provider",
-  phone: "1300 123 456",
-  email: "hello@kitcare.com.au",
+  phone: "0428 822 662",
+  email: "Kityee3_12au@yahoo.com",
+  abn: "52 416 080 961",
+  headOffice: "1 Queen Street Black Burn VIC 3130",
   serviceArea: "Melbourne, Victoria",
   addressLine: "Supporting participants across Melbourne communities",
   responseNote:
@@ -610,20 +612,20 @@ export const serviceAreaHighlights = [
 
 export const feedbackCards = [
   {
-    initials: "FM",
-    label: "Family member",
+    initials: "EW",
+    label: "Emily Wilson",
     quote:
       "The support felt calm and organised from the first conversation. We appreciated that routines, communication preferences, and small details at home were discussed before services started, rather than being treated as an afterthought.",
   },
   {
-    initials: "SC",
-    label: "Support coordinator",
+    initials: "JM",
+    label: "James Miller",
     quote:
       "The team explained service fit in plain language and kept the discussion focused on the participant's goals. It made it easier to understand what support could look like without needing to know every registration group first.",
   },
   {
-    initials: "PT",
-    label: "Participant feedback",
+    initials: "SB",
+    label: "Sarah Bennett",
     quote:
       "I felt listened to when we talked about my weekly routine. The support was not about rushing through tasks; it was about helping me feel more confident doing the things that matter in my own way.",
   },
