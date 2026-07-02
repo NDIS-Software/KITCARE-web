@@ -1,12 +1,19 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
+import { findVictorianSuburbSuggestions } from "@/lib/victorianSuburbs";
 
 type SubmitState = "error" | "idle" | "sending" | "sent";
 
 export function ContactForm() {
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [feedback, setFeedback] = useState("");
+  const [formStartedAt, setFormStartedAt] = useState(() => String(Date.now()));
+  const [suburbValue, setSuburbValue] = useState("");
+  const suburbSuggestions = useMemo(
+    () => findVictorianSuburbSuggestions(suburbValue),
+    [suburbValue],
+  );
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -24,6 +31,7 @@ export function ContactForm() {
           message: formData.get("message"),
           name: formData.get("name"),
           phone: formData.get("phone"),
+          startedAt: formData.get("startedAt"),
           suburb: formData.get("suburb"),
           website: formData.get("website"),
         }),
@@ -46,6 +54,8 @@ export function ContactForm() {
         "Thank you. Your enquiry has been sent to the KIT Care team.",
       );
       form.reset();
+      setFormStartedAt(String(Date.now()));
+      setSuburbValue("");
     } catch (error) {
       setSubmitState("error");
       setFeedback(
@@ -79,6 +89,7 @@ export function ContactForm() {
           autoComplete="off"
         />
       </div>
+      <input type="hidden" name="startedAt" value={formStartedAt} readOnly />
       <div className="grid gap-2">
         <label htmlFor="name" className="text-sm font-semibold text-navy">
           Full name
@@ -123,9 +134,17 @@ export function ContactForm() {
         <input
           id="suburb"
           name="suburb"
+          value={suburbValue}
+          onChange={(event) => setSuburbValue(event.target.value)}
           className="min-h-12 rounded-md border border-border-soft px-4 text-foreground outline-none transition focus:border-teal"
           autoComplete="address-level2"
+          list="suburb-suggestions"
         />
+        <datalist id="suburb-suggestions">
+          {suburbSuggestions.map((suggestion) => (
+            <option key={suggestion.label} value={suggestion.label} />
+          ))}
+        </datalist>
       </div>
       <div className="grid gap-2">
         <label htmlFor="message" className="text-sm font-semibold text-navy">

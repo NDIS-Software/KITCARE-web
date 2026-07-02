@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ButtonLink } from "@/components/ButtonLink";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -58,9 +57,6 @@ export default function ContactPage() {
                 >
                   Call KIT Care
                 </a>
-                <ButtonLink href={`mailto:${company.email}`} variant="secondary">
-                  Email KIT Care
-                </ButtonLink>
               </div>
             </div>
             <ContactForm />

@@ -1,16 +1,24 @@
 import { NextResponse } from "next/server";
+import {
+  CONTACT_RATE_LIMIT,
+  createRateLimiter,
+  isSubmissionTooFast,
+} from "@/lib/contactSecurity";
 import { company } from "@/lib/content";
+import { normalizeVictorianSuburb } from "@/lib/victorianSuburbs";
 
 export const runtime = "nodejs";
 
 const MAX_FIELD_LENGTH = 240;
 const MAX_MESSAGE_LENGTH = 4000;
+const contactRateLimiter = createRateLimiter(CONTACT_RATE_LIMIT);
 
 type ContactPayload = {
   email?: unknown;
   message?: unknown;
   name?: unknown;
   phone?: unknown;
+  startedAt?: unknown;
   suburb?: unknown;
   website?: unknown;
 };
@@ -36,6 +44,18 @@ function formatOptional(value: string) {
   return value || "Not provided";
 }
 
+function getClientIp(request: Request) {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  const forwardedIp = forwardedFor?.split(",")[0]?.trim();
+
+  return (
+    forwardedIp ||
+    request.headers.get("x-real-ip") ||
+    request.headers.get("cf-connecting-ip") ||
+    "unknown"
+  );
+}
+
 export async function POST(request: Request) {
   let payload: ContactPayload;
 
@@ -54,10 +74,19 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  const startedAt = readString(payload.startedAt);
+
+  if (isSubmissionTooFast(startedAt)) {
+    return NextResponse.json(
+      { message: "Please wait a moment before submitting the form." },
+      { status: 429 },
+    );
+  }
+
   const name = readString(payload.name);
   const email = readString(payload.email);
   const phone = readString(payload.phone);
-  const suburb = readString(payload.suburb);
+  const suburb = normalizeVictorianSuburb(readString(payload.suburb));
   const message = readString(payload.message, MAX_MESSAGE_LENGTH);
 
   if (!name || !email || !message) {
@@ -71,6 +100,18 @@ export async function POST(request: Request) {
     return NextResponse.json(
       { message: "Please provide a valid email address." },
       { status: 400 },
+    );
+  }
+
+  const rateLimit = contactRateLimiter.check(getClientIp(request));
+
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { message: "Too many enquiries sent. Please wait a few minutes." },
+      {
+        headers: { "Retry-After": String(rateLimit.retryAfterSeconds) },
+        status: 429,
+      },
     );
   }
 
