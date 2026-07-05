@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
+import { FounderProfileFeature } from "@/components/FounderProfileFeature";
+import { HowWeWorkCard } from "@/components/HowWeWorkCard";
 import { Icon } from "@/components/Icon";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { aboutTrustAreas, carePrinciples, company, whyChooseUs } from "@/lib/content";
+import {
+  aboutTrustAreas,
+  carePrinciples,
+  company,
+  founderProfile,
+  whyChooseUs,
+} from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -18,14 +26,14 @@ export default function AboutPage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main className="bg-[#f7fbfb]">
         <PageHero
           title="Support built around people, choices, and community"
           description="KIT Care provides respectful NDIS support in Melbourne that helps participants feel heard, safe, and confident in everyday life."
         />
-        <section className="px-6 py-20">
+        <section className="bg-[#f7fbfb] px-6 py-20">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-sky-soft">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-sky-soft shadow-[0_18px_60px_rgba(8,47,99,0.08)]">
               <Image
                 src="/images/generated/family-coordinator-support-meeting.png"
                 alt="Participant, family member, and support worker discussing support preferences"
@@ -60,6 +68,7 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        <FounderProfileFeature profile={founderProfile} />
         <section className="bg-sky-soft px-6 py-20">
           <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
             {[
@@ -74,7 +83,7 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
-        <section className="px-6 py-20">
+        <section className="bg-[#f7fbfb] px-6 py-20">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
               title="How we work"
@@ -82,23 +91,17 @@ export default function AboutPage() {
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {aboutTrustAreas.map((item) => (
-                <div
+                <HowWeWorkCard
                   key={item.title}
-                  className="rounded-lg border border-border-soft bg-white p-7"
-                >
-                  <Icon name={item.icon} className="size-10 text-teal" />
-                  <h3 className="mt-5 text-xl font-bold text-navy">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-muted">
-                    {item.description}
-                  </p>
-                </div>
+                  title={item.title}
+                  description={item.description}
+                  icon={item.icon}
+                />
               ))}
             </div>
           </div>
         </section>
-        <section className="px-6 py-20">
+        <section className="bg-[#eef8fb] px-6 py-20">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
               title="Our care approach"
@@ -119,7 +122,7 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-        <section className="px-6 py-20">
+        <section className="bg-[#f7fbfb] px-6 py-20">
           <div className="mx-auto max-w-5xl">
             <SectionHeader
               title="Why people choose KIT Care"

@@ -670,6 +670,26 @@ export const aboutTrustAreas = [
   },
 ];
 
+export const founderProfile = {
+  name: "Chloe Lo",
+  role: "Director & Support Leader",
+  summary:
+    "Chloe leads KIT Care with more than five years of practical support experience across disability support, aged care, personal care, community access, and daily living assistance. Her approach is calm, reliable, and person-centred, with a focus on consistent support relationships that respect each participant's routines, goals, communication needs, and dignity.",
+  highlights: [
+    "Disability and aged care support",
+    "Personal care and daily living routines",
+    "Community access, appointments, and companionship",
+  ],
+  credentials: [
+    "5+ years practical support experience",
+    "Certificate IV in Disability",
+    "Certificate IV in Ageing Support",
+    "Current First Aid and CPR",
+  ],
+  verificationNote:
+    "Verified worker checks and relevant safety training are maintained before support is arranged.",
+};
+
 export const carePrinciples = [
   {
     title: "Your choice comes first",

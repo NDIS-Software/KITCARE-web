@@ -40,3 +40,71 @@ body {
 a {
   text-underline-offset: 0.18em;
 }
+
+.how-work-card {
+  transition:
+    border-color 300ms ease,
+    box-shadow 300ms ease,
+    transform 300ms ease;
+}
+
+.how-work-card__overlay,
+.how-work-card__glow,
+.how-work-card__icon,
+.how-work-card__title,
+.how-work-card__body {
+  transition:
+    color 300ms ease,
+    opacity 300ms ease;
+}
+
+.how-work-card:is(:hover, :focus-within) {
+  border-color: transparent;
+  box-shadow: 0 24px 70px rgb(8 47 99 / 18%);
+  transform: translateY(-0.25rem);
+}
+
+.how-work-card:is(:hover, :focus-within) .how-work-card__overlay,
+.how-work-card:is(:hover, :focus-within) .how-work-card__glow {
+  opacity: 1;
+}
+
+.how-work-card:is(:hover, :focus-within) .how-work-card__icon,
+.how-work-card:is(:hover, :focus-within) .how-work-card__title {
+  color: #ffffff;
+}
+
+.how-work-card:is(:hover, :focus-within) .how-work-card__body {
+  color: rgb(255 255 255 / 86%);
+}
+
+.how-work-card:focus-visible {
+  outline: 3px solid rgb(14 95 147 / 35%);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .founder-reveal {
+    opacity: 0;
+    transition:
+      opacity 780ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      transform 780ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .founder-reveal-left {
+    transform: translate3d(-72px, 38px, 0) scale(0.96);
+  }
+
+  .founder-reveal-right {
+    transform: translate3d(72px, 28px, 0);
+  }
+
+  .founder-reveal-up {
+    transform: translate3d(0, 32px, 0);
+  }
+
+  .founder-reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
