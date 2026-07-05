@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
-import { FounderProfileFeature } from "@/components/FounderProfileFeature";
 import { HowWeWorkCard } from "@/components/HowWeWorkCard";
 import { Icon } from "@/components/Icon";
 import { PageHero } from "@/components/PageHero";
@@ -12,7 +11,6 @@ import {
   aboutTrustAreas,
   carePrinciples,
   company,
-  founderProfile,
   whyChooseUs,
 } from "@/lib/content";
 
@@ -68,7 +66,6 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-        <FounderProfileFeature profile={founderProfile} />
         <section className="bg-sky-soft px-6 py-20">
           <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
             {[
