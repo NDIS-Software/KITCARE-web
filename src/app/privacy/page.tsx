@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { company } from "@/lib/content";
+import { createBreadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy",
   description: "KIT Care Privacy Policy.",
-};
+  path: "/privacy",
+});
 
 const intro = `This Privacy Policy applies to all personal information collected by ${company.name} via this website.`;
 
@@ -71,6 +74,12 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <>
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Privacy Policy", path: "/privacy" },
+        ])}
+      />
       <SiteHeader />
       <main>
         <PageHero

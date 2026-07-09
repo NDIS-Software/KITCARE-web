@@ -3,12 +3,18 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Icon } from "@/components/Icon";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ServiceCard } from "@/components/ServiceCard";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { gettingStartedSteps, services } from "@/lib/content";
+import {
+  createBreadcrumbJsonLd,
+  createServiceJsonLd,
+  createServiceMetadata,
+} from "@/lib/seo";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -28,10 +34,7 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
-    title: service.title,
-    description: service.summary,
-  };
+  return createServiceMetadata(service);
 }
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
@@ -48,6 +51,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          createServiceJsonLd(service),
+          createBreadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: service.title, path: service.href },
+          ]),
+        ]}
+      />
       <SiteHeader />
       <main>
         <PageHero title={service.title} description={service.summary} />

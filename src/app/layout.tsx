@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  createLocalBusinessJsonLd,
+  createOrganizationJsonLd,
+  createWebsiteJsonLd,
+  rootMetadata,
+} from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,15 +19,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "KIT Care | Registered NDIS Provider",
-    template: "%s | KIT Care",
-  },
-  description:
-    "KIT Care provides personalised NDIS support services in Melbourne that help people live with confidence, independence, and connection.",
-  metadataBase: new URL("https://kitcare.com.au"),
-};
+export const metadata: Metadata = rootMetadata;
 
 export default function RootLayout({
   children,
@@ -33,6 +32,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
+        <JsonLd
+          data={[
+            createOrganizationJsonLd(),
+            createLocalBusinessJsonLd(),
+            createWebsiteJsonLd(),
+          ]}
+        />
         {children}
       </body>
     </html>

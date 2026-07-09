@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Icon } from "@/components/Icon";
+import { JsonLd } from "@/components/JsonLd";
 import { NdisMarkPlaceholder } from "@/components/NdisMarkPlaceholder";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ServiceCarousel } from "@/components/ServiceCarousel";
@@ -19,10 +20,19 @@ import {
   whyChooseUs,
   gettingStartedSteps,
 } from "@/lib/content";
+import { createFaqJsonLd, createPageMetadata, siteConfig } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: siteConfig.defaultTitle,
+  titleAbsolute: true,
+  description: siteConfig.description,
+  path: "/",
+});
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={createFaqJsonLd(faqs)} />
       <SiteHeader />
       <main className="bg-background">
         <section className="relative overflow-hidden">

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { HowWeWorkCard } from "@/components/HowWeWorkCard";
 import { Icon } from "@/components/Icon";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -13,16 +14,25 @@ import {
   company,
   whyChooseUs,
 } from "@/lib/content";
+import { createBreadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "About Us",
   description:
     "Learn about KIT Care, a registered NDIS provider in Melbourne focused on respectful, person-centred support.",
-};
+  path: "/about",
+  image: "/images/generated/family-coordinator-support-meeting.png",
+});
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "About Us", path: "/about" },
+        ])}
+      />
       <SiteHeader />
       <main className="bg-[#f7fbfb]">
         <PageHero

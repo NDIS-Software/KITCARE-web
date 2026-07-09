@@ -3,24 +3,40 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Icon } from "@/components/Icon";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ServiceCard } from "@/components/ServiceCard";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { gettingStartedSteps, serviceScenarios, services } from "@/lib/content";
+import { createBreadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "NDIS Services",
   description:
     "Explore KIT Care NDIS services in Melbourne including Personal Care, Travel & Transport, Household Tasks, Community Participation, and other support groups.",
-};
+  path: "/services",
+  image: "/images/generated/ndis-support-services-collage.png",
+  keywords: [
+    "NDIS services Melbourne",
+    "KIT Care services",
+    "registered NDIS provider services",
+    "personal care transport household tasks community participation",
+  ],
+});
 
 export default function ServicesPage() {
   const [featuredService, ...supportServices] = services;
 
   return (
     <>
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ])}
+      />
       <SiteHeader />
       <main>
         <PageHero

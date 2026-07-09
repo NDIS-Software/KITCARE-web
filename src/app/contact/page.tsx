@@ -1,20 +1,35 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { company, serviceAreaHighlights } from "@/lib/content";
+import { createBreadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description:
     "Contact KIT Care to ask about NDIS support services and next steps.",
-};
+  path: "/contact",
+  image: "/images/generated/getting-started-support-conversation.png",
+  keywords: [
+    "contact KIT Care",
+    "NDIS provider contact Melbourne",
+    "NDIS support enquiry Melbourne",
+  ],
+});
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
       <SiteHeader />
       <main>
         <PageHero
