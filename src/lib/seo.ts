@@ -35,7 +35,7 @@ type BreadcrumbItem = {
   path: string;
 };
 
-const productionSiteUrl = "https://kitcare.com.au";
+const productionSiteUrl = "https://kit-care.com";
 const lastContentUpdate = "2026-07-09";
 
 function normalizeSiteUrl(value: string | undefined) {

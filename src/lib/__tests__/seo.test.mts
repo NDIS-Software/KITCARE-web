@@ -10,9 +10,9 @@ import {
 } from "../seo.ts";
 
 test("builds canonical URLs from the production site origin", () => {
-  assert.equal(absoluteUrl("/services"), "https://kitcare.com.au/services");
-  assert.equal(absoluteUrl("contact"), "https://kitcare.com.au/contact");
-  assert.equal(absoluteUrl("/"), "https://kitcare.com.au/");
+  assert.equal(absoluteUrl("/services"), "https://kit-care.com/services");
+  assert.equal(absoluteUrl("contact"), "https://kit-care.com/contact");
+  assert.equal(absoluteUrl("/"), "https://kit-care.com/");
 });
 
 test("uses the customer company address in local business schema", () => {
@@ -56,7 +56,7 @@ test("creates route metadata with canonical and social URLs", () => {
 
   assert.equal(metadata.title, "Contact");
   assert.equal(metadata.alternates?.canonical, "/contact");
-  assert.equal(metadata.openGraph?.url, "https://kitcare.com.au/contact");
+  assert.equal(metadata.openGraph?.url, "https://kit-care.com/contact");
   assert.equal(
     (metadata.twitter as { card?: string } | undefined)?.card,
     "summary_large_image",
@@ -73,6 +73,6 @@ test("creates service schema for each searchable service page", () => {
   assert.equal(schema.name, service.title);
   assert.equal(schema.provider.name, company.name);
   assert.equal(schema.areaServed.name, company.serviceArea);
-  assert.equal(schema.url, "https://kitcare.com.au/services/personal-care");
+  assert.equal(schema.url, "https://kit-care.com/services/personal-care");
   assert.equal(schema.serviceType, service.group);
 });
