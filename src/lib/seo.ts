@@ -132,6 +132,13 @@ function socialImage(image: string = siteConfig.defaultImage) {
 export const rootMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   applicationName: company.name,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   title: {
     default: siteConfig.defaultTitle,
     template: `%s | ${company.name}`,
