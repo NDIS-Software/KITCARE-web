@@ -134,10 +134,26 @@ export const rootMetadata: Metadata = {
   applicationName: company.name,
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: absoluteUrl("/favicon.ico"), type: "image/x-icon" },
+      {
+        url: absoluteUrl("/favicon-48x48.png"),
+        type: "image/png",
+        sizes: "48x48",
+      },
+      {
+        url: absoluteUrl("/favicon-96x96.png"),
+        type: "image/png",
+        sizes: "96x96",
+      },
     ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: absoluteUrl("/favicon.ico"),
+    apple: [
+      {
+        url: absoluteUrl("/apple-touch-icon.png"),
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
   title: {
     default: siteConfig.defaultTitle,
